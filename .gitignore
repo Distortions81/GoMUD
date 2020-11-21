@@ -24,3 +24,4 @@ data/sectors
 *.key
 *.pem
 log/
+.gz
