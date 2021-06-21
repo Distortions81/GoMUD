@@ -19,8 +19,6 @@ out/linecount.json
 out/linecount.txt
 out/linecount.txt
 gomud
-data/players
-data/sectors
 *.key
 *.pem
 log/

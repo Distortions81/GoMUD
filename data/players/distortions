@@ -1,0 +1,50 @@
+{
+	"Version": "0.0.1",
+	"Fingerprint": "Distortions1595501932845879821-9307821391548854083",
+	"Name": "Distortions",
+	"Password": "$2a$10$iT.clxN.0DRvOKh0/6RVXuQY4WQKpn4tYeAWOwS/gADIRDecdYYRq",
+	"PlayerType": 1000,
+	"Level": 1,
+	"Location": {
+		"Sector": 1,
+		"ID": 1
+	},
+	"Recall": {
+		"Sector": 1,
+		"ID": 1
+	},
+	"Created": "2020-07-23T04:58:48.5606438-06:00",
+	"LastSeen": "2020-08-10T02:15:26.423407662-06:00",
+	"OLCEdit": {
+		"Sector": 1,
+		"ID": 1
+	},
+	"CurEdit": {
+		"Lines": {
+			"0": "{KThere is a computer, in a {wplain black case{K, with an old {yAmber CRT monitor glowing{K... The only {willumination{K in the room.",
+			"1": "",
+			"2": "",
+			"3": "test",
+			"4": "",
+			"5": "{WRoses {Yare {RRed{w..."
+		},
+		"ColorCodes": true
+	},
+	"Connections": {
+		"127.0.0.1": 356
+	},
+	"BytesIn": {
+		"127.0.0.1": 27369
+	},
+	"BytesOut": {
+		"127.0.0.1": 1205086
+	},
+	"Config": {
+		"PreNewline": true,
+		"PostNewline": true
+	},
+	"OLCSettings": {
+		"NoOLCPrefix": true,
+		"OLCRoomFollow": true
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"Version": "0.0.1",
+	"Fingerprint": "Tester-1596478343298669783-709248730602674186",
+	"Name": "Tester",
+	"Password": "$2a$10$2GTxzDcrlE9LVNR4H52sxODrh3IBNXH1pfV8K9OnMd4PsUBw.ie4.",
+	"Level": 1,
+	"Location": {
+		"Sector": 1,
+		"ID": 1
+	},
+	"Recall": {},
+	"Created": "2020-08-03T12:12:18.444864534-06:00",
+	"LastSeen": "2020-08-04T11:55:02.020844176-06:00",
+	"OLCEdit": {
+		"Room": {},
+		"Object": {},
+		"Trigger": {},
+		"Mobile": {},
+		"Quest": {}
+	},
+	"CurEdit": {
+		"Lines": null
+	},
+	"Connections": {
+		"127.0.0.1": 8
+	},
+	"BytesIn": {
+		"127.0.0.1": 386
+	},
+	"BytesOut": {
+		"127.0.0.1": 20201
+	},
+	"Config": {
+		"Ansi": true,
+		"PreNewline": true,
+		"PostNewline": true
+	},
+	"OLCSettings": {}
+}

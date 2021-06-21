@@ -1,0 +1,27 @@
+{
+	"Version": "0.0.1",
+	"Fingerprint": "Europa1595795274721226904-15032021294027177493",
+	"Name": "Europa",
+	"Password": "$2a$10$S68RVc5Hj2bPHghf838E8.fcIU42nSnjsHDhwS4kStjFwx.UEUKQ2",
+	"Level": 0,
+	"State": 0,
+	"Location": {
+		"Sector": 1,
+		"ID": 3
+	},
+	"Created": "2020-07-26T15:27:41.630045867-05:00",
+	"LastSeen": "2020-07-26T15:33:08.728243314-05:00",
+	"TimePlayed": 0,
+	"Aliases": null,
+	"Connections": {
+		"173.18.68.218": 1
+	},
+	"BytesIn": {
+		"173.18.68.218": 258
+	},
+	"BytesOut": {
+		"173.18.68.218": 6583
+	},
+	"Settings": null,
+	"Valid": true
+}

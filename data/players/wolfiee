@@ -1,0 +1,27 @@
+{
+	"Version": "0.0.1",
+	"Fingerprint": "Wolfiee1595807699835113755-16696665101601808201",
+	"Name": "Wolfiee",
+	"Password": "$2a$10$jTIFu35k91pUjUkusY659.qgjHJHkDKE8wjf8Bf50AdCAq5w4NHJO",
+	"Level": 0,
+	"State": 0,
+	"Location": {
+		"Sector": 1,
+		"ID": 2
+	},
+	"Created": "2020-07-26T18:54:20.470994396-05:00",
+	"LastSeen": "2020-07-26T20:11:44.281610426-05:00",
+	"TimePlayed": 0,
+	"Aliases": null,
+	"Connections": {
+		"34.228.95.236": 2
+	},
+	"BytesIn": {
+		"34.228.95.236": 3590
+	},
+	"BytesOut": {
+		"34.228.95.236": 75969
+	},
+	"Settings": null,
+	"Valid": true
+}

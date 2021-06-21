@@ -1,0 +1,155 @@
+{
+	"Version": "0.0.1",
+	"NumRooms": 9,
+	"ID": 1,
+	"Fingerprint": "Default-1595569108647375794-5577006791947779410",
+	"Name": "System Sector",
+	"Area": "System",
+	"Description": "Free for anyone to use",
+	"Rooms": {
+		"0": {
+			"Name": "new room"
+		},
+		"1": {
+			"Name": "Another room",
+			"Description": "{RThe {Gquick {Ybrown {Bfox {Mjumped {Cover {Wthe {wlazy {Kdog. {rThe {gquick {ybrown {bfox {mjumped {cover {wthe {wlazy {Kdog. {iItalic{x {uUnderline{x {sStrike{x {n{RThe {Gquick {Ybrown {Bfox {Mjumped {Cover {Wthe {wlazy {Kdog.\r\n\r\n",
+			"Exits": {
+				"Down": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 2
+					},
+					"Door": {}
+				},
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 3
+					},
+					"Door": {}
+				},
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 6
+					},
+					"Door": {}
+				}
+			}
+		},
+		"2": {
+			"Name": "A hole in the ground",
+			"Description": "{KThere is a computer, in a {wplain black case{K, with an old {yAmber CRT monitor glowing{K... The only {willumination{K in the room.\r\n",
+			"Exits": {
+				"Up": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 1
+					},
+					"Door": {}
+				}
+			}
+		},
+		"3": {
+			"Name": "new room",
+			"Exits": {
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 4
+					},
+					"Door": {}
+				},
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 1
+					},
+					"Door": {}
+				}
+			}
+		},
+		"4": {
+			"Name": "new room",
+			"Exits": {
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 5
+					},
+					"Door": {}
+				},
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 3
+					},
+					"Door": {}
+				}
+			}
+		},
+		"5": {
+			"Name": "new room",
+			"Exits": {
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 4
+					},
+					"Door": {}
+				}
+			}
+		},
+		"6": {
+			"Name": "new room",
+			"Exits": {
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 1
+					},
+					"Door": {}
+				},
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 7
+					},
+					"Door": {}
+				}
+			}
+		},
+		"7": {
+			"Name": "new room",
+			"Exits": {
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 6
+					},
+					"Door": {}
+				},
+				"West": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 8
+					},
+					"Door": {}
+				}
+			}
+		},
+		"8": {
+			"Name": "new room",
+			"Exits": {
+				"East": {
+					"ToRoom": {
+						"Sector": 1,
+						"ID": 7
+					},
+					"Door": {}
+				}
+			}
+		}
+	},
+	"Valid": true
+}
