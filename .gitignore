@@ -18,7 +18,7 @@ go.sum
 out/linecount.json
 out/linecount.txt
 out/linecount.txt
-gomud
+gmudev
 *.key
 *.pem
 log/

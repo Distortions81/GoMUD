@@ -22,7 +22,11 @@ func setupListenerSSL() {
 	//openssl req -new -x509 -key server.key -out server.pem -days 3650
 	cert, err := tls.LoadX509KeyPair(def.DATA_DIR+def.SSL_PEM, def.DATA_DIR+def.SSL_KEY)
 	if err != nil {
-		log.Fatal("Error loading certificate. ", err)
+		log.Print("Error loading SSL certificate, SSL port not opened.")
+		log.Print("How to make cert: (put in data directory)")
+		log.Print("openssl ecparam -genkey -name prime256v1 -out server.key")
+		log.Print("openssl req -new -x509 -key server.key -out server.pem -days 3650")
+		return
 	}
 
 	tlsCfg := &tls.Config{Certificates: []tls.Certificate{cert}}
@@ -54,30 +58,33 @@ func setupListener() {
 
 func WaitNewConnectionSSL() {
 
-	for glob.ServerState == def.SERVER_RUNNING {
+	if glob.ServerListenerSSL != nil {
 
-		time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
-		desc, err := glob.ServerListenerSSL.Accept()
-		support.AddNetDesc()
-		time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
+		for glob.ServerState == def.SERVER_RUNNING {
 
-		/* If there is a connection flood, sleep listeners */
-		if err != nil || support.CheckNetDesc() {
-			time.Sleep(5 * time.Second)
-			desc.Close()
-			support.RemoveNetDesc()
-		} else {
-
-			_, err = desc.Write([]byte(
-				"You have connected to GOMud: " + def.VERSION + ", port " + def.DEFAULT_PORT_SSL + " (With SSL!)\r\n" + glob.Greeting +
-					"(Type NEW to create character) Name:"))
 			time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
-			support.NewDescriptor(desc, true)
+			desc, err := glob.ServerListenerSSL.Accept()
+			support.AddNetDesc()
+			time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
+
+			/* If there is a connection flood, sleep listeners */
+			if err != nil || support.CheckNetDesc() {
+				time.Sleep(5 * time.Second)
+				desc.Close()
+				support.RemoveNetDesc()
+			} else {
+
+				_, err = desc.Write([]byte(
+					"You have connected to GOMud: " + def.VERSION + ", port " + def.DEFAULT_PORT_SSL + " (With SSL!)\r\n" + glob.Greeting +
+						"(Type NEW to create character) Name:"))
+				time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
+				support.NewDescriptor(desc, true)
+			}
+
 		}
 
+		glob.ServerListenerSSL.Close()
 	}
-
-	glob.ServerListenerSSL.Close()
 }
 
 func WaitNewConnection() {
