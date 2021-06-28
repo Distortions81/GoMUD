@@ -11,10 +11,16 @@ import (
 
 func Write(line string) {
 	t := time.Now()
-	dss := fmt.Sprintf("%v:%v:%v: ", t.Hour(), t.Minute(), t.Second())
+	date := fmt.Sprintf("%02d-%02d-%04d_%02d-%02d-%02d", t.Month(), t.Day(), t.Year(), t.Hour(), t.Minute(), t.Second())
 
-	log.Println(line)
-	writeToMods(dss + line)
+	//Async write
+	go func(line string, date string) {
+		buf := fmt.Sprintf("%s: %s\n", date, line)
+
+		writeToMods(line)
+		log.Print(line)
+		glob.MudLog.WriteString(buf)
+	}(line, date)
 }
 
 func writeToMods(text string) {
@@ -32,12 +38,4 @@ func writeToMods(text string) {
 			}
 		}
 	}
-
-	//Async write
-	go func(text string) {
-		t := time.Now()
-		date := fmt.Sprintf("%02d-%02d-%04d_%02d-%02d-%02d", t.Month(), t.Day(), t.Year(), t.Hour(), t.Minute(), t.Second())
-		glob.MudLog.WriteString(fmt.Sprintf("%s: %s\n", date, text))
-	}(text)
-
 }
