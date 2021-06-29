@@ -17,7 +17,7 @@ func Write(line string) {
 	go func(line string, date string) {
 		buf := fmt.Sprintf("%s: %s\n", date, line)
 
-		writeToMods(line)
+		go writeToMods(line)
 		log.Print(line)
 		glob.MudLog.WriteString(buf)
 	}(line, date)

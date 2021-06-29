@@ -74,8 +74,8 @@ func WriteToBuilder(player *glob.PlayerData, text string) {
 	}
 
 	if player.OLCSettings.OLCShowCodes {
-		WriteToConn(player.Connection, text, false, true)
+		go WriteToConn(player.Connection, text, false, true)
 	} else {
-		WriteToConn(player.Connection, text, player.Config.Ansi, false)
+		go WriteToConn(player.Connection, text, player.Config.Ansi, false)
 	}
 }
