@@ -20,7 +20,5 @@ out/linecount.txt
 out/linecount.txt
 gmudev
 __debug_bin
-*.key
-*.pem
 log/
 .gz
