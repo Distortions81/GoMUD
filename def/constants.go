@@ -2,7 +2,8 @@ package def
 
 const VERSION = "Pre-Alpha build, v0.0.13 07092021-1212a"
 const LICENSE = "GOMud-Server " + VERSION + "\n" +
-	"COPYRIGHT 2020-2021 Carl Frank Otto III (carlotto81@gmail.com), License: MIT\n" +
+	"COPYRIGHT 2020-2021 Carl Frank Otto III (carlotto81@gmail.com)" +
+	"License: Mozilla Public License 2.0\n" +
 	"This information must remain unmodified, fully intact and shown to end-users.\n" +
 	"Source: https://github.com/Distortions81/gomud\n" +
 	"\n"
