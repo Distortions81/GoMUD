@@ -75,8 +75,8 @@ func WaitNewConnectionSSL() {
 			} else {
 
 				_, err = desc.Write([]byte(
-					"You have connected to GOMud: " + def.VERSION + ", port " + def.DEFAULT_PORT_SSL + " (With SSL!)\r\n" + glob.Greeting +
-						"(Type NEW to create character) Name:"))
+					def.LICENSE + glob.Greeting +
+						"(SSL Encryption Enabled!)\n(Type NEW to create character) Name:"))
 				time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
 				support.NewDescriptor(desc, true)
 			}
@@ -104,10 +104,8 @@ func WaitNewConnection() {
 		} else {
 
 			_, err = desc.Write([]byte(
-				"You have connected to GOMud: " + def.VERSION + ", port " + def.DEFAULT_PORT + " (insecure telnet)\r\n" +
-					"If your client supports it, please use port " + def.DEFAULT_PORT_SSL + ", for AES-256 encryption!\r\n" +
-					glob.Greeting +
-					"(Type NEW to create character) Name:"))
+				def.LICENSE + glob.Greeting +
+					"(ENCRYPTION NOT ENABLED!)\n(Type NEW to create character) Name:"))
 
 			time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
 			support.NewDescriptor(desc, false)
