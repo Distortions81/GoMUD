@@ -137,7 +137,7 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 		/*Players shouldn't be here*/
 		return
 	} else if con.State == def.CON_STATE_WELCOME {
-		if command == "new" {
+		if strings.ToLower(command) == "new" {
 			buf := fmt.Sprintf("Names must be between %d and %d letters long, A-z only.", def.MIN_PLAYER_NAME_LENGTH, def.MAX_PLAYER_NAME_LENGTH)
 			WriteToDesc(con, buf)
 			WriteToDesc(con, "What name would you like to go by?")
