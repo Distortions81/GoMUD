@@ -33,7 +33,8 @@ func CmdDown(player *glob.PlayerData, input string) {
 
 func CmdRecall(player *glob.PlayerData, input string) {
 
-	if input == "set" {
+	cmdl := strings.ToLower(input)
+	if cmdl == "set" {
 		//I love how elegant this is
 		player.Recall = player.Location
 		WriteToPlayer(player, "Recall set!")

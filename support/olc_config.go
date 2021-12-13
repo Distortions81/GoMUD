@@ -34,7 +34,8 @@ func OLCConfig(player *glob.PlayerData,
 	match, _ := FindClosestMatch(cmdNames, argTwoThrough)
 	player.Dirty = true
 
-	if match == "follow" {
+	matchl := strings.ToLower(match)
+	if matchl == "follow" {
 		if player.OLCSettings.OLCRoomFollow {
 			player.OLCSettings.OLCRoomFollow = false
 			WriteToPlayer(player, "OLC will no longer change the room you are editing when you move.")
@@ -42,7 +43,7 @@ func OLCConfig(player *glob.PlayerData,
 			player.OLCSettings.OLCRoomFollow = true
 			WriteToPlayer(player, "OLC will automatically edit whatever room you move to.")
 		}
-	} else if match == "showcodes" {
+	} else if matchl == "showcodes" {
 		if player.OLCSettings.OLCShowCodes {
 			player.OLCSettings.OLCShowCodes = false
 			WriteToPlayer(player, "OLC will now just show normal color.")
@@ -50,7 +51,7 @@ func OLCConfig(player *glob.PlayerData,
 			player.OLCSettings.OLCShowCodes = true
 			WriteToPlayer(player, "OLC will show color codes in names and descriptions.")
 		}
-	} else if match == "prompt" {
+	} else if matchl == "prompt" {
 		if player.OLCSettings.OLCPrompt {
 			player.OLCSettings.OLCPrompt = false
 			WriteToPlayer(player, "Your prompt will no longer change to OLC prompt while editing.")
@@ -58,7 +59,7 @@ func OLCConfig(player *glob.PlayerData,
 			player.OLCSettings.OLCPrompt = true
 			WriteToPlayer(player, "Your prompt will now be OLC information.")
 		}
-	} else if match == "noolcprefix" {
+	} else if matchl == "noolcprefix" {
 		if player.OLCSettings.NoOLCPrefix {
 			player.OLCSettings.NoOLCPrefix = false
 			WriteToPlayer(player, "Your input will NOT be sent directly to olc. Prefix all OLC commands with: olc <command>.")
@@ -66,7 +67,7 @@ func OLCConfig(player *glob.PlayerData,
 			player.OLCSettings.NoOLCPrefix = true
 			WriteToPlayer(player, "All your input will be directed to OLC, until you exit it.\r\ncmd <command> will pass-through commands.")
 		}
-	} else if match == "nohint" {
+	} else if matchl == "nohint" {
 		if player.OLCSettings.NoHint {
 			player.OLCSettings.NoHint = false
 			WriteToPlayer(player, "After every line, remind you of STOP/CMD commands")

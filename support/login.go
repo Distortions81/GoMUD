@@ -42,7 +42,6 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 	command, argTwoThrough := SplitArgsTwo(input, " ")
 	cmdB, argThreeThrough := SplitArgsTwo(argTwoThrough, " ")
 	cmdl := strings.ToLower(command)
-	//cmdBl := strings.ToLower(cmdB)
 
 	//Set player as no longer idle
 	con.IdleTime = time.Now()
@@ -187,7 +186,7 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 			}
 		}
 	} else if con.State == def.CON_STATE_RECONNECT_CONFIRM {
-		if command == "y" || command == "yes" {
+		if cmdl == "y" || cmdl == "yes" {
 			WriteToDesc(con, "Password:")
 			con.Name = con.TempPlayer.Name
 			con.State = def.CON_STATE_PASSWORD
@@ -239,7 +238,7 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 		}
 		/*Confirm new player*/
 	} else if con.State == def.CON_STATE_NEW_LOGIN_CONFIRM {
-		if command == "y" || command == "yes" {
+		if cmdl == "y" || cmdl == "yes" {
 			con.Player = CreatePlayerFromDesc(con)
 
 			WriteToDesc(con, "You shall be called "+con.Name+", then...")

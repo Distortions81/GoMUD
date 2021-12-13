@@ -41,8 +41,10 @@ func CmdRelog(player *glob.PlayerData, input string) {
 func CmdAlias(player *glob.PlayerData, input string) {
 	command, longArgs := SplitArgsTwo(input, " ")
 	firstArg, lastArgs := SplitArgsTwo(longArgs, " ")
+	cmdl := strings.ToLower(command)
+	lFirstArg := strings.ToLower(firstArg)
 
-	if command == "list" {
+	if cmdl == "list" {
 		aliases := ""
 		for key, value := range player.Aliases {
 			aliases = aliases + fmt.Sprintf("%s: %s\r\n", key, value)
@@ -51,13 +53,13 @@ func CmdAlias(player *glob.PlayerData, input string) {
 			aliases = "None"
 		}
 		WriteToPlayer(player, "Aliases:\r\n"+aliases)
-	} else if command == "add" {
+	} else if cmdl == "add" {
 
 		/*Prevent problems*/
 		if firstArg == "" {
 			WriteToPlayer(player, "The alias needs a name.")
 			return
-		} else if firstArg == "alias" {
+		} else if lFirstArg == "alias" {
 			WriteToPlayer(player, "That would be a bad idea.")
 			return
 		}
@@ -70,7 +72,7 @@ func CmdAlias(player *glob.PlayerData, input string) {
 		player.Aliases[firstArg] = lastArgs
 		WriteToPlayer(player, "Alias added.")
 		player.Dirty = true
-	} else if command == "delete" {
+	} else if cmdl == "delete" {
 		found := false
 		for key, _ := range player.Aliases {
 			if strings.EqualFold(key, firstArg) {
