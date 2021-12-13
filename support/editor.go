@@ -13,7 +13,6 @@ func MleEditor(player *glob.PlayerData, input string) {
 	command, argTwoThrough := SplitArgsTwo(input, " ")
 	cmdB, _ := SplitArgsTwo(argTwoThrough, " ")
 	cmdl := strings.ToLower(command)
-	//cmdBl := strings.ToLower(cmdB)
 
 	player.CurEdit.Active = true
 	e := &player.CurEdit
