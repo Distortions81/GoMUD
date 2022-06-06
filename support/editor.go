@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func MleEditor(player *glob.PlayerData, input string) {

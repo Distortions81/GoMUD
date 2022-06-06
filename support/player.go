@@ -5,8 +5,8 @@ import (
 	"log"
 	"time"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func GetPTypeString(ptype int) string {

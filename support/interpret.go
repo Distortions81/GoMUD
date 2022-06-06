@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"../glob"
+	"gomud/glob"
 )
 
 var ShortCutList []glob.Command

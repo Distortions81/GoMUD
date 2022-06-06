@@ -3,8 +3,8 @@ package support
 import (
 	"fmt"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func CmdChat(player *glob.PlayerData, args string) {

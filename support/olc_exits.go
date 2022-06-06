@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func OLCExits(player *glob.PlayerData,

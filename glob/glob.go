@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"../def"
+	"gomud/def"
 )
 
 var SignalHandle chan os.Signal

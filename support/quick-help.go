@@ -5,8 +5,8 @@ import (
 	"log"
 	"strings"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func MakeQuickHelp() {

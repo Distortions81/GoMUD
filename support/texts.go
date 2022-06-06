@@ -4,8 +4,8 @@ import (
 	"io/ioutil"
 	"log"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func ReadTextFiles() {

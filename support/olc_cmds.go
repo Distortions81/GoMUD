@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"../glob"
+	"gomud/glob"
 )
 
 func CmdRoomList(player *glob.PlayerData, args string) {

@@ -1,8 +1,8 @@
 package support
 
 import (
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 /*Command list, types/levels in constants.go*/

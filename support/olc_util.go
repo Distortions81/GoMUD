@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"../glob"
+	"gomud/glob"
 )
 
 func getLocationFromString(player *glob.PlayerData, input string) (glob.LocationData, bool) {

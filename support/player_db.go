@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
 )
 
 //TODO ASYNC READ

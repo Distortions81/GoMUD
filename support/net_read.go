@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func ReadConnection(con *glob.ConnectionData) {

@@ -7,9 +7,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/mlog"
+
+	"gomud/def"
+	"gomud/glob"
 )
 
 func CmdWriteHelps(player *glob.PlayerData, input string) {

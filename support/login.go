@@ -6,9 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
+
 	"golang.org/x/crypto/bcrypt"
 )
 

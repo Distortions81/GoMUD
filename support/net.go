@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func AutoResolveAddress(con *glob.ConnectionData) {

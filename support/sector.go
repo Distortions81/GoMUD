@@ -1,7 +1,7 @@
 package support
 
 import (
-	"../glob"
+	"gomud/glob"
 )
 
 func LocationDataFromID(sector int, id int) (glob.LocationData, bool) {

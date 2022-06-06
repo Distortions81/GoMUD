@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"../glob"
+	"gomud/glob"
 )
 
 func OLCConfig(player *glob.PlayerData,

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"../glob"
+	"gomud/glob"
 )
 
 func CmdConfig(player *glob.PlayerData, input string) {

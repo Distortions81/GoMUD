@@ -6,7 +6,7 @@ import (
 	"strings"
 	"syscall"
 
-	"../glob"
+	"gomud/glob"
 )
 
 func CmdShutdown(player *glob.PlayerData, args string) {

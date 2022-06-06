@@ -4,7 +4,7 @@ import (
 	"net"
 	"time"
 
-	"../def"
+	"gomud/def"
 )
 
 type PlayerData struct {

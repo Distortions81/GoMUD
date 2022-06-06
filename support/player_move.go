@@ -6,9 +6,9 @@ import (
 	"os"
 	"strings"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
 )
 
 //Hard coded aliases

@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
 )
 
 func GetResetFromID(sector int, id int, number int) (*glob.ResetsData, bool) {

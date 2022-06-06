@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"../def"
-	"../glob"
-	"../mlog"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
 )
 
 func DescWriteError(c *glob.ConnectionData, err error) {

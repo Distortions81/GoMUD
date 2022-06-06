@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 func OLCSector(player *glob.PlayerData,

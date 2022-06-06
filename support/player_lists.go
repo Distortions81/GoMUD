@@ -1,8 +1,8 @@
 package support
 
 import (
-	"../def"
-	"../glob"
+	"gomud/def"
+	"gomud/glob"
 )
 
 var PlayerTypes = []glob.PTypeData{

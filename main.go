@@ -11,10 +11,10 @@ import (
 	"syscall"
 	"time"
 
-	"./def"
-	"./glob"
-	"./mlog"
-	"./support"
+	"gomud/def"
+	"gomud/glob"
+	"gomud/mlog"
+	"gomud/support"
 )
 
 func setupListenerSSL() {
