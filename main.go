@@ -125,6 +125,10 @@ func main() {
 	glob.BootTime = t
 
 	logName := fmt.Sprintf("log/%v-%v-%v.log", t.Day(), t.Month(), t.Year())
+	err = os.Mkdir("log", os.ModePerm)
+	if err != nil {
+		fmt.Println("Unable to make log dir.")
+	}
 	glob.MudLog, err = os.OpenFile(logName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		fmt.Println("Unable to open log file!")
