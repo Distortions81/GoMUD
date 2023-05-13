@@ -105,7 +105,7 @@ func CreatePlayerFromDesc(conn *glob.ConnectionData) *glob.PlayerData {
 
 func LinkPlayerConnection(player *glob.PlayerData, con *glob.ConnectionData) {
 
-	if player == nil || con == nil || player.Valid == false {
+	if player == nil || con == nil || !player.Valid {
 		return
 	}
 
@@ -155,7 +155,7 @@ func LinkPlayerConnection(player *glob.PlayerData, con *glob.ConnectionData) {
 	recycled := false
 	if glob.PlayerListEnd > 1 {
 		for x := 1; x <= glob.PlayerListEnd; x++ {
-			if glob.PlayerList[x].Valid == false {
+			if !glob.PlayerList[x].Valid {
 				glob.PlayerList[x] = player
 				recycled = true
 				buf := fmt.Sprintf("Recycling player #%v.", x)
@@ -164,7 +164,7 @@ func LinkPlayerConnection(player *glob.PlayerData, con *glob.ConnectionData) {
 		}
 	}
 	/* Create new if needed */
-	if recycled == false {
+	if !recycled {
 		glob.PlayerListEnd++
 		glob.PlayerList[glob.PlayerListEnd] = player
 		buf := fmt.Sprintf("Creating new player #%v.", glob.PlayerListEnd)

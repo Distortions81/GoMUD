@@ -21,7 +21,7 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 		return
 	}
 	//May have to bypass this for "force" command
-	if con.Valid == false {
+	if !con.Valid {
 		return
 	}
 
@@ -74,9 +74,9 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 		if con.Player.CurEdit.Active {
 			MleEditor(con.Player, input)
 			return
-		} else if con.Player.OLCSettings.NoOLCPrefix == true && con.Player.OLCEdit.Active {
+		} else if con.Player.OLCSettings.NoOLCPrefix && con.Player.OLCEdit.Active {
 			if cmdl == "cmd" {
-				if strings.EqualFold(cmdB, "olc") == false {
+				if !strings.EqualFold(cmdB, "olc") {
 					PlayerCommand(con.Player, cmdB, argThreeThrough, false)
 					return
 				} else {
@@ -100,15 +100,15 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 			} else if con.Player.OLCEdit.Mode == def.OLC_ROOM {
 				OLCPrompt = fmt.Sprintf("<OLC ROOM: %v:%v>:", con.Player.OLCEdit.Room.Sector, con.Player.OLCEdit.Room.ID)
 			} else if con.Player.OLCEdit.Mode == def.OLC_OBJECT {
-				OLCPrompt = fmt.Sprintf("<OLC OBJECT: WIP>:")
+				OLCPrompt = "<OLC OBJECT: WIP>:"
 			} else if con.Player.OLCEdit.Mode == def.OLC_RESET {
-				OLCPrompt = fmt.Sprintf("<OLC TRIGGER: WIP>:")
+				OLCPrompt = "<OLC TRIGGER: WIP>:"
 			} else if con.Player.OLCEdit.Mode == def.OLC_MOBILE {
-				OLCPrompt = fmt.Sprintf("<OLC MOBILE: WIP>: ")
+				OLCPrompt = "<OLC MOBILE: WIP>: "
 			} else if con.Player.OLCEdit.Mode == def.OLC_QUEST {
-				OLCPrompt = fmt.Sprintf("<OLC QUEST: WIP>: ")
+				OLCPrompt = "<OLC QUEST: WIP>: "
 			} else if con.Player.OLCEdit.Mode == def.OLC_SECTOR {
-				OLCPrompt = fmt.Sprintf("<OLC SECTOR: WIP>: ")
+				OLCPrompt = "<OLC SECTOR: WIP>: "
 			} else if con.Player.OLCEdit.Mode == def.OLC_EXITS {
 				OLCPrompt = fmt.Sprintf("<OLC EXITS: [%v] Room: %v:%v>",
 					con.Player.OLCEdit.Exit.Name,
@@ -172,7 +172,7 @@ func interpretInput(con *glob.ConnectionData, input string, isAlias bool) {
 				}
 				_, found := ReadPlayer(alphaChar, false)
 
-				if found == false {
+				if !found {
 					WriteToDesc(con, "Couldn't find a player by that name.")
 					WriteToDesc(con, "Try again, or type 'NEW' to create a new character.")
 					WriteToDesc(con, "Name:")

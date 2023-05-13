@@ -34,7 +34,7 @@ type ObjectData struct {
 	Player     *PlayerData  `json:"-"`
 	InRoom     *RoomData    `json:"-"`
 	Location   LocationData `json:",omitempty"`
-	Persistant bool         `json:",omitempty"`
+	Persistent bool         `json:",omitempty"`
 
 	PlayerRestring string         `json:",omitempty"`
 	Owners         map[int]string `json:",omitempty"`
@@ -129,7 +129,7 @@ type ResetsData struct {
 	Location LocationData `json:",omitempty"`
 	Type     int          `json:",omitempty"`
 
-	Quanity  int    `json:",omitempty"`
+	Quantity int    `json:",omitempty"`
 	Interval string `json:",omitempty"`
 
 	Valid bool

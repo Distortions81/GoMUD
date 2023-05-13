@@ -25,7 +25,7 @@ func SplitArgsTwo(input string, sep string) (command string, longArg string) {
 	return command, longArg
 }
 
-//TruncateString Actually shorten strings
+// TruncateString Actually shorten strings
 func TruncateString(str string, num int) (string, bool) {
 	output := str
 
@@ -36,7 +36,7 @@ func TruncateString(str string, num int) (string, bool) {
 	return output, false
 }
 
-//AlphaOnly A-z
+// AlphaOnly A-z
 func AlphaOnly(str string) string {
 	b := make([]byte, len(str))
 	var bl int
@@ -50,7 +50,7 @@ func AlphaOnly(str string) string {
 	return string(b[:bl])
 }
 
-//All characters except A-z and control
+// All characters except A-z and control
 func NonAlpha(str string) string {
 	b := make([]byte, len(str))
 	var bl int
@@ -64,7 +64,7 @@ func NonAlpha(str string) string {
 	return string(b[:bl])
 }
 
-//0-9 only
+// 0-9 only
 func NumericOnly(str string) string {
 	b := make([]byte, len(str))
 	var bl int
@@ -78,7 +78,7 @@ func NumericOnly(str string) string {
 	return string(b[:bl])
 }
 
-//No ASCII control characters
+// No ASCII control characters
 func StripControl(str string) string {
 	b := make([]byte, len(str))
 	var bl int

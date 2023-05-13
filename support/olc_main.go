@@ -10,7 +10,7 @@ import (
 func CmdOLC(player *glob.PlayerData, input string) {
 
 	//TODO, IN EDITOR HELP
-	if player.OLCSettings.NoOLCPrefix == false && player.OLCSettings.NoHint == false {
+	if !player.OLCSettings.NoOLCPrefix && !player.OLCSettings.NoHint {
 		defer WriteToPlayer(player, "cmd <command> for non-olc commands, or type STOP to exit OLC.")
 	}
 	command, argTwoThrough := SplitArgsTwo(input, " ")

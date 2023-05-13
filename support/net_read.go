@@ -15,7 +15,7 @@ func ReadConnection(con *glob.ConnectionData) {
 	if con == nil {
 		return
 	}
-	if con.Valid == false {
+	if !con.Valid {
 		return
 	}
 	if glob.ConnectionListEnd >= def.MAX_USERS-1 {
@@ -42,12 +42,10 @@ func ReadConnection(con *glob.ConnectionData) {
 		limit, _ := TruncateString(filter, def.MAX_INPUT_LENGTH)
 
 		if con.Input.BufferInCount-con.Input.BufferOutCount >= def.MAX_INPUT_LINES-1 {
-			for x := 0; x <= 3; x++ {
-				WriteToDesc(con, "Too many lines, stop spamming!")
-				CloseConnection(con)
-				glob.ConnectionListLock.Unlock() /*--- UNLOCK ---*/
-				return
-			}
+			WriteToDesc(con, "Too many lines, stop spamming!")
+			CloseConnection(con)
+			glob.ConnectionListLock.Unlock() /*--- UNLOCK ---*/
+			return
 		}
 
 		lines := strings.Split(limit, ";")

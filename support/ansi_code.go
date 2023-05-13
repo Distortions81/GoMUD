@@ -6,7 +6,7 @@ func ANSIColor(in string) string {
 	output := ""
 	input := in
 
-	length := len(input) - 1
+	var length int
 
 	for i := 0; ; i++ {
 		length = len(input)
@@ -68,6 +68,7 @@ func StripColorCodes(in string) string {
 
 }
 
+// Should be replaced with a table or map.
 func getColor(i byte) string {
 
 	if i == 'x' {

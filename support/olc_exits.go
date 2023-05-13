@@ -19,7 +19,7 @@ func OLCExits(player *glob.PlayerData,
 		return
 	} else if cmdl == "name" {
 		if cmdB != "" {
-			for exitName, _ := range player.OLCEdit.Room.RoomLink.Exits {
+			for exitName := range player.OLCEdit.Room.RoomLink.Exits {
 				if strings.EqualFold(exitName, cmdB) {
 					WriteToPlayer(player, "That exit already exists.")
 					return
@@ -89,7 +89,7 @@ func OLCExits(player *glob.PlayerData,
 		return
 	} else if cmdl == "toroom" {
 		loc, found := getLocationFromString(player, cmdB)
-		if found == false {
+		if !found {
 			WriteToPlayer(player, "Invalid location. <sector:id>, or <id> for sector you are standing in.")
 			return
 		}

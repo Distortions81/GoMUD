@@ -25,7 +25,7 @@ func CmdGetHelps(player *glob.PlayerData, input string) {
 
 	if input == "" {
 		WriteToPlayer(player, "Help topics:")
-		for topicName, _ := range glob.HelpSystem.Topics {
+		for topicName := range glob.HelpSystem.Topics {
 			WriteToPlayer(player, topicName)
 		}
 		return
@@ -47,13 +47,13 @@ func CmdGetHelps(player *glob.PlayerData, input string) {
 			}
 		}
 	}
-	if found == false {
+	if !found {
 		WriteToPlayer(player, "No chapter found with that search term, Topics found:")
 
 		for topicName, topicData := range glob.HelpSystem.Topics {
 			if strings.HasPrefix(strings.ToLower(topicName), argOne) {
 				WriteToPlayer(player, "Topic: "+topicName)
-				for chapterName, _ := range topicData.Chapters {
+				for chapterName := range topicData.Chapters {
 					buf := fmt.Sprintf("Chapter: %v", chapterName)
 					WriteToPlayer(player, buf)
 					found = true
@@ -66,7 +66,7 @@ func CmdGetHelps(player *glob.PlayerData, input string) {
 	if found && totalPages > 1 {
 		WriteToPlayer(player, "Help: <chapter> <page> to see more.")
 	}
-	if found == false {
+	if !found {
 		WriteToPlayer(player, "I couldn't find anything!")
 	}
 }

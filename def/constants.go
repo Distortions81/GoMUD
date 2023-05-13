@@ -10,11 +10,11 @@ const LICENSE = "GOMud-Server " + VERSION + "\n" +
 const DEFAULT_PORT = ":7777"
 const DEFAULT_PORT_SSL = ":7778"
 
-//SSL
+// SSL
 const SSL_PEM = "server.pem"
 const SSL_KEY = "server.key"
 
-//Maximums
+// Maximums
 const MAX_SECTORS = 10000
 const MAX_USERS = 1000
 const MAX_DESC = 950
@@ -26,7 +26,7 @@ const MAX_INPUT_LINES = 10
 const MAX_CMATCH_SEARCH = 10000
 const MAX_COMMANDS_PER_LINE = 15
 
-//Timers
+// Timers
 const ROUND_LENGTH_uS = 250000
 const ROUND_REST_MS = 3
 const CONNECT_THROTTLE_MS = 500
@@ -35,7 +35,7 @@ const WELCOME_TIMEOUT_S = 30
 const PLAYER_BACKGROUND_uS = 5000000  //5s
 const SECTOR_BACKGROUND_uS = 15000000 //15s
 
-//Player/sector defaults
+// Player/sector defaults
 const PLAYER_START_SECTOR = 1
 const PLAYER_START_ROOM = 1
 
@@ -83,7 +83,7 @@ const CON_STATE_NEWS = 200
 const CON_STATE_RECONNECT_CONFIRM = 300
 const CON_STATE_PLAYING = 1000
 
-//New Users
+// New Users
 const CON_STATE_NEW_LOGIN = 400
 const CON_STATE_NEW_LOGIN_CONFIRM = 500
 const CON_STATE_NEW_PASSWORD = 600

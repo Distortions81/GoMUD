@@ -27,7 +27,6 @@ func OLCSector(player *glob.PlayerData,
 		if secData != nil {
 			WriteToPlayer(player, fmt.Sprintf("Sector %v selected.", sec))
 			player.OLCEdit.Sector.Sector = sec
-			sector = secData
 			CmdOLC(player, "")
 			return
 		}
@@ -72,7 +71,7 @@ func OLCSector(player *glob.PlayerData,
 
 			}
 		} else if strings.EqualFold(cmdl, "delete") {
-			WriteToPlayer(player, "If you are COMPLETELY CERTAIN you want to PERMENATELY DLETE the ROOMS AND OBJECTS in this ENTIRE SECTOR....\r\nType: confirm-delete-sector")
+			WriteToPlayer(player, "If you are COMPLETELY CERTAIN you want to PERMANENTLY DELETE the ROOMS AND OBJECTS in this ENTIRE SECTOR....\r\nType: confirm-delete-sector")
 			return
 		} else if strings.EqualFold(cmdl, "confirm-delete-sector") {
 			fileName := def.DATA_DIR + def.SECTOR_DIR + def.SECTOR_PREFIX + fmt.Sprintf("%v", sector.ID) + def.FILE_SUFFIX

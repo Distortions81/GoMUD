@@ -81,8 +81,7 @@ func WriteToPlayerCodes(player *glob.PlayerData, text string) {
 func WriteToAll(text string) {
 
 	for x := 0; x <= glob.ConnectionListEnd; x++ {
-		var con *glob.ConnectionData
-		con = &glob.ConnectionList[x]
+		con := &glob.ConnectionList[x]
 		if con != nil && con.Valid && con.Player != nil && con.State == def.CON_STATE_PLAYING {
 			if con != nil && con.Valid && con.Player != nil && con.Player.Valid {
 				go WriteToConn(con, text, con.Player.Config.Ansi, false)
@@ -98,8 +97,7 @@ func WriteToOthers(player *glob.PlayerData, text string) {
 		return
 	}
 	for x := 0; x <= glob.ConnectionListEnd; x++ {
-		var con *glob.ConnectionData
-		con = &glob.ConnectionList[x]
+		con := &glob.ConnectionList[x]
 		if con != player.Connection {
 			if con != nil && con.Valid && con.Player != nil && con.State == def.CON_STATE_PLAYING {
 				if con != nil && con.Valid && con.Player != nil && con.Player.Valid {

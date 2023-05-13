@@ -228,8 +228,9 @@ func boolToYesNo(toggle bool) string {
 	}
 }
 
+/* Currently unused */
 func boolToTrueFalse(toggle bool) string {
-	if toggle == true {
+	if toggle {
 		return "{YTRUE{x"
 	} else {
 		return "{RFALSE{x"

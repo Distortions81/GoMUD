@@ -11,7 +11,7 @@ import (
 	"gomud/mlog"
 )
 
-//Hard coded aliases
+// Hard coded aliases
 func CmdNorth(player *glob.PlayerData, input string) {
 	CmdGo(player, "north")
 }
@@ -107,6 +107,7 @@ func PlayerToRoom(player *glob.PlayerData, sectorID int, roomID int) {
 	}
 }
 
+/* Currently unused */
 func movePlayerExit(player *glob.PlayerData, arg string, exit *glob.ExitData) {
 	WriteToPlayer(player, "You go "+arg+".")
 	WriteToRoom(player, player.Name+" goes "+arg+".")
@@ -153,7 +154,7 @@ func CmdGo(player *glob.PlayerData, args string) {
 	if !found {
 
 		var exitsList []string
-		for exitName, _ := range player.Location.RoomLink.Exits {
+		for exitName := range player.Location.RoomLink.Exits {
 			exitsList = append(exitsList, exitName)
 		}
 		result, _ := FindClosestMatch(exitsList, args)

@@ -24,24 +24,21 @@ func CmdConfig(player *glob.PlayerData, input string) {
 		{ID: 1000, Name: "PreNewline", Help: "Blank line before commands", Ref: &player.Config.PreNewline},
 		{ID: 1100, Name: "PostNewline", Help: "Blank line after commands", Ref: &player.Config.PostNewline},
 	}
-	if PlayerConfig != nil {
 
-		for p, cfg := range PlayerConfig {
-			n, err := strconv.Atoi(input)
-			if input != "" && (strings.EqualFold(command, cfg.Name) || (p+1 == n && err == nil)) {
+	for p, cfg := range PlayerConfig {
+		n, err := strconv.Atoi(input)
+		if input != "" && (strings.EqualFold(command, cfg.Name) || (p+1 == n && err == nil)) {
 
-				setCfg(player, PlayerConfig, p, longArg)
-				WriteToPlayer(player, fmt.Sprintf("%v is now %v", cfg.Name, printCfgType(PlayerConfig, p)))
-				break
+			setCfg(player, PlayerConfig, p, longArg)
+			WriteToPlayer(player, fmt.Sprintf("%v is now %v", cfg.Name, printCfgType(PlayerConfig, p)))
+			break
 
-			}
 		}
-		for p, cfg := range PlayerConfig {
-			WriteToPlayer(player, fmt.Sprintf("%15v (%-3v)[ %v] -- %v", cfg.Name, p+1, printCfgType(PlayerConfig, p), cfg.Help))
-		}
-		WriteToPlayer(player, "config <name/number> to toggle, config <name/number> <number/text>")
-
 	}
+	for p, cfg := range PlayerConfig {
+		WriteToPlayer(player, fmt.Sprintf("%15v (%-3v)[ %v] -- %v", cfg.Name, p+1, printCfgType(PlayerConfig, p), cfg.Help))
+	}
+	WriteToPlayer(player, "config <name/number> to toggle, config <name/number> <number/text>")
 
 }
 

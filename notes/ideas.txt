@@ -1,5 +1,5 @@
 login->server->character
-possibly make seperate program, that passes connections to servers (easier to handle copyover/crashes, and avoid reconnect/relog)
+possibly make separate program, that passes connections to servers (easier to handle copyover/crashes, and avoid reconnect/relog)
 
 races/classes/skills/spells/commands scripting language, lower barrier to entry.
 probably handle disconnected/deleted players/items/states at all times (via dedicated functions)
@@ -24,7 +24,7 @@ open/close/lock/unlock
 OLC ID quickcycle, quickdump (website)?
 Quickmap
 
-largish ASCII emjoii
+largish ASCII emojis
 
 wiz: player level set, kick/ban/slay
 
@@ -67,7 +67,7 @@ Plans locks and threads
 compile idea list, and todo lists in one place
 move lists to lists.go, load/save?
 
-heh, wierd idea.
+heh, weird idea.
 for input or output... a find/replace filter players can make themselves.
 or censor words or phrases
 filter out add goodbye:au revoir
@@ -81,7 +81,7 @@ modem sim w/ compression
 steal colorizers
 make list of things to take from old muds --> 
 
-input/out subsitution maps
+input/out substitution maps
 
 
 track fastest/average/slowest round time

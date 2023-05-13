@@ -60,7 +60,7 @@ func CmdLook(player *glob.PlayerData, args string) {
 			exits := "["
 			l := len(player.Location.RoomLink.Exits)
 			x := 0
-			for name, _ := range player.Location.RoomLink.Exits {
+			for name := range player.Location.RoomLink.Exits {
 				x++
 				if name != "" {
 					exits = exits + name
@@ -80,7 +80,7 @@ func CmdLook(player *glob.PlayerData, args string) {
 			unlinked := ""
 			for _, target := range player.Location.RoomLink.Players {
 				if target != nil && target != player {
-					if target.Connection != nil && target.Connection.Valid == false {
+					if target.Connection != nil && !target.Connection.Valid {
 						unlinked = " (lost connection)"
 					}
 					names = names + fmt.Sprintf("%s is here.%s", target.Name, unlinked)

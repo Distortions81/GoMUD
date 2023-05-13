@@ -31,7 +31,7 @@ func NewDescriptor(desc net.Conn, ssl bool) {
 
 	for x := 1; x <= glob.ConnectionListEnd; x++ {
 
-		if glob.ConnectionList[x].Valid == true {
+		if glob.ConnectionList[x].Valid {
 			continue
 		} else {
 			newConnection := glob.ConnectionData{
@@ -83,7 +83,6 @@ func NewDescriptor(desc net.Conn, ssl bool) {
 	if !CheckNetDesc() {
 		go ReadConnection(&glob.ConnectionList[glob.ConnectionListEnd])
 	}
-	return
 }
 
 func CloseConnection(con *glob.ConnectionData) {

@@ -14,7 +14,7 @@ import (
 	"gomud/mlog"
 )
 
-//TODO ASYNC READ
+// TODO ASYNC READ
 func ReadPlayer(name string, load bool) (*glob.PlayerData, bool) {
 
 	_, err := os.Stat(def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(name))
@@ -39,7 +39,7 @@ func ReadPlayer(name string, load bool) (*glob.PlayerData, bool) {
 
 				err := json.Unmarshal([]byte(file), &player)
 				if err != nil {
-					CheckError("ReadPlayer: Unmashal", err, def.ERROR_NONFATAL)
+					CheckError("ReadPlayer: Unmarshal", err, def.ERROR_NONFATAL)
 				}
 
 				if player.Connections == nil {
@@ -83,14 +83,13 @@ func WritePlayer(player *glob.PlayerData, asyncSave bool) bool {
 	enc := json.NewEncoder(outbuf)
 	enc.SetIndent("", "\t")
 
+	if player == nil && !player.Valid {
+		return false
+	}
 	player.Version = def.PFILE_VERSION
 	fileName := def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(player.Name)
 
 	player.LastSeen = time.Now()
-
-	if player == nil && !player.Valid {
-		return false
-	}
 
 	if err := enc.Encode(&player); err != nil {
 		CheckError("WritePlayer: enc.Encode", err, def.ERROR_NONFATAL)
@@ -119,7 +118,7 @@ func writePlayerFile(outbuf *bytes.Buffer, fileName string) {
 	glob.PlayerFileLock.Lock()
 	defer glob.PlayerFileLock.Unlock()
 
-	err := ioutil.WriteFile(fileName, []byte(outbuf.String()), 0644)
+	err := ioutil.WriteFile(fileName, outbuf.Bytes(), 0644)
 
 	if err != nil {
 		CheckError("WritePlayer: WriteFile", err, def.ERROR_NONFATAL)
@@ -135,7 +134,7 @@ func RemovePlayer(player *glob.PlayerData) {
 		fmt.Println("RemovePlayer: nil player")
 		return
 	}
-	if player.Valid == false {
+	if !player.Valid {
 		fmt.Println("RemovePlayer: non-valid player")
 	}
 

@@ -35,7 +35,6 @@ func CmdRelog(player *glob.PlayerData, input string) {
 	WriteToDesc(c, glob.Greeting)
 
 	WriteToDesc(c, "(Type NEW to create character) Name:")
-	return
 }
 
 func CmdAlias(player *glob.PlayerData, input string) {
@@ -74,7 +73,7 @@ func CmdAlias(player *glob.PlayerData, input string) {
 		player.Dirty = true
 	} else if cmdl == "delete" {
 		found := false
-		for key, _ := range player.Aliases {
+		for key := range player.Aliases {
 			if strings.EqualFold(key, firstArg) {
 				found = true
 				break
@@ -87,7 +86,7 @@ func CmdAlias(player *glob.PlayerData, input string) {
 		}
 	} else {
 		WriteToPlayer(player, "Aliases can be the same name as commands,")
-		WriteToPlayer(player, "but you can still alias the orignal command to something else.")
+		WriteToPlayer(player, "but you can still alias the original command to something else.")
 		WriteToPlayer(player, "Aliases can not call other aliases, or the alias command,")
 		WriteToPlayer(player, "and must use full-length command names (no shorthand).")
 		WriteToPlayer(player, "")
@@ -103,7 +102,7 @@ func CmdCommands(player *glob.PlayerData, args string) {
 
 func CmdQuit(player *glob.PlayerData, args string) {
 	okay := WritePlayer(player, true)
-	if okay == false {
+	if !okay {
 		WriteToPlayer(player, "Saving character failed!!!")
 		return //Don't quit if we couldn't save
 	} else {
@@ -121,7 +120,7 @@ func CmdWho(player *glob.PlayerData, args string) {
 	pos := 0
 	for x := 1; x <= glob.ConnectionListEnd; x++ {
 		var p *glob.ConnectionData = &glob.ConnectionList[x]
-		if p.Valid == false {
+		if !p.Valid {
 			continue
 		}
 
@@ -151,7 +150,7 @@ func CmdWho(player *glob.PlayerData, args string) {
 }
 
 func CmdSave(player *glob.PlayerData, args string) {
-	if player.ReqSave == false {
+	if !player.ReqSave {
 		WriteToPlayer(player, "Saving character...")
 	}
 	player.Dirty = true

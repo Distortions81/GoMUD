@@ -13,8 +13,8 @@ func OLCReset(player *glob.PlayerData,
 
 	found := 0
 	isFound := false
-	sector := player.OLCEdit.Reset.Sector
-	id := player.OLCEdit.Reset.ID
+	var sector int
+	var id int
 	wasErr := false
 
 	if cmdl == "done" {
@@ -29,7 +29,7 @@ func OLCReset(player *glob.PlayerData,
 
 		/* Check if sector/id is specified */
 		sector, id, wasErr = ParseVnum(player, argThreeThrough)
-		if wasErr == false && sector > 0 && id > 0 {
+		if !wasErr && sector > 0 && id > 0 {
 			if glob.SectorsList[sector].Rooms[id] == nil {
 				WriteToPlayer(player, "That room does not exist!")
 				return
@@ -55,7 +55,7 @@ func OLCReset(player *glob.PlayerData,
 
 		for x := 1; ; x++ {
 			r := glob.SectorsList[sector].Rooms[id].Resets[x]
-			if r == nil || r.Valid == false {
+			if r == nil || !r.Valid {
 				found = x
 				break
 			}
@@ -109,7 +109,7 @@ func OLCReset(player *glob.PlayerData,
 	} else {
 		sector, id, wasErr = ParseVnum(player, input)
 		_, isFound = GetRoomFromID(sector, id)
-		if wasErr == false && isFound == true {
+		if !wasErr && isFound {
 			var rLoc glob.LocationData
 			rLoc, isFound = LocationDataFromID(sector, id)
 			if isFound {

@@ -43,7 +43,7 @@ func WriteHelps() bool {
 
 	//Async write
 	go func(outbuf bytes.Buffer) {
-		err = ioutil.WriteFile(fileName, []byte(outbuf.String()), 0644)
+		err = ioutil.WriteFile(fileName, outbuf.Bytes(), 0644)
 
 		if err != nil {
 			CheckError("WriteHelps: WriteFile", err, def.ERROR_NONFATAL)
@@ -77,14 +77,14 @@ func ReadHelps() bool {
 
 			err := json.Unmarshal([]byte(file), &helps)
 			if err != nil {
-				CheckError("ReadPlayer: Unmashal", err, def.ERROR_NONFATAL)
+				CheckError("ReadPlayer: Unmarshal", err, def.ERROR_NONFATAL)
 			}
 
 			if helps.Topics == nil {
 				helps.Topics = make(map[string]*glob.HelpTopics)
 			}
 
-			for x, _ := range helps.Topics {
+			for x := range helps.Topics {
 				helps.Topics[x].Valid = true
 			}
 

@@ -23,8 +23,8 @@ func ReadSectorList() {
 	for _, file := range files {
 		if strings.HasSuffix(file.Name(), def.FILE_SUFFIX) {
 			sector := ReadSector(file.Name())
-			sector.Valid = true
 			if sector != nil {
+				sector.Valid = true
 				if glob.SectorsList[sector.ID].Valid {
 					buf := fmt.Sprintf("%v has same sector ID as %v! Skipping!", sector.Name, glob.SectorsList[sector.ID].Name)
 					mlog.Write(buf)
@@ -63,15 +63,15 @@ func WriteSector(sector *glob.SectorData) bool {
 	enc := json.NewEncoder(outbuf)
 	enc.SetIndent("", "\t")
 
-	sector.Version = def.SECTOR_VERSION
-
 	if sector == nil {
 		return false
 	}
 
+	sector.Version = def.SECTOR_VERSION
+
 	/*Write room count*/
 	numRooms := 0
-	for _, _ = range sector.Rooms {
+	for range sector.Rooms {
 		numRooms++
 	}
 	sector.NumRooms = numRooms
@@ -94,7 +94,7 @@ func WriteSector(sector *glob.SectorData) bool {
 		glob.SectorsFileLock.Lock()
 		defer glob.SectorsFileLock.Unlock()
 
-		err = ioutil.WriteFile(fileName, []byte(outbuf.String()), 0644)
+		err = ioutil.WriteFile(fileName, outbuf.Bytes(), 0644)
 
 		if err != nil {
 			CheckError("WriteSector: WriteFile", err, def.ERROR_NONFATAL)
@@ -129,7 +129,7 @@ func ReadSector(name string) *glob.SectorData {
 
 			err := json.Unmarshal([]byte(file), &sector)
 			if err != nil {
-				CheckError("ReadSector: Unmashal", err, def.ERROR_NONFATAL)
+				CheckError("ReadSector: Unmarshal", err, def.ERROR_NONFATAL)
 				return nil
 			}
 			if sector.ID > glob.SectorsListEnd {
@@ -137,7 +137,7 @@ func ReadSector(name string) *glob.SectorData {
 			}
 
 			numRooms := 0
-			for x, _ := range sector.Rooms {
+			for x := range sector.Rooms {
 				numRooms++
 				room := sector.Rooms[x]
 
@@ -157,7 +157,7 @@ func ReadSector(name string) *glob.SectorData {
 					room.Resets = make(map[int]*glob.ResetsData)
 				}
 
-				for x, _ := range room.Exits {
+				for x := range room.Exits {
 					exit := room.Exits[x]
 					if exit.Door != nil {
 						exit.Door.Valid = true
@@ -165,13 +165,13 @@ func ReadSector(name string) *glob.SectorData {
 					exit.RoomP = room
 					exit.Valid = true
 				}
-				for x, _ := range room.PermObjects {
+				for x := range room.PermObjects {
 					pObj := room.PermObjects[x]
 					pObj.Sector = sector.ID
 					pObj.InRoom = room
 					pObj.Valid = true
 				}
-				for x, _ := range room.Objects {
+				for x := range room.Objects {
 					obj := room.Objects[x]
 					obj.Sector = sector.ID
 					obj.InRoom = room
@@ -182,7 +182,7 @@ func ReadSector(name string) *glob.SectorData {
 			}
 			sector.NumRooms = numRooms
 
-			for x, _ := range sector.Objects {
+			for x := range sector.Objects {
 				obj := sector.Objects[x]
 				obj.Valid = true
 			}

@@ -31,14 +31,14 @@ func OLCObject(player *glob.PlayerData,
 
 		/* Check if sector/id is specified */
 		sector, id, wasErr = ParseVnum(player, argThreeThrough)
-		if wasErr == false && sector > 0 && id > 0 {
+		if !wasErr && sector > 0 && id > 0 {
 			glob.SectorsList[sector].Objects[id] = CreateObject()
 		} else {
 			sector = player.Location.Sector
 			objs := glob.SectorsList[sector].Objects
 
 			for x := 1; ; x++ {
-				if objs[x] != nil && objs[x].Valid == false {
+				if objs[x] != nil && !objs[x].Valid {
 					found = x
 					break
 				}
@@ -56,7 +56,7 @@ func OLCObject(player *glob.PlayerData,
 		glob.SectorsList[sector].Objects[found] = CreateObject()
 		glob.SectorsList[sector].Objects[found].ID = found
 
-		player.OLCEdit.Object.ObjectLink, isFound = GetObjectFromID(sector, found)
+		player.OLCEdit.Object.ObjectLink, _ = GetObjectFromID(sector, found)
 		player.OLCEdit.Object.Sector = sector
 		player.OLCEdit.Object.ID = found
 
@@ -101,7 +101,7 @@ func OLCObject(player *glob.PlayerData,
 				newDesc = newDesc + player.CurEdit.Lines[x] + "\r\n"
 			}
 			player.OLCEdit.Object.ObjectLink.Description = newDesc
-			WriteToPlayer(player, "Text transfered from editor.")
+			WriteToPlayer(player, "Text transferred from editor.")
 			CmdOLC(player, "")
 			return
 		}
@@ -121,8 +121,8 @@ func OLCObject(player *glob.PlayerData,
 	} else {
 		sector, id, wasErr = ParseVnum(player, input)
 		obj, isFound = GetObjectFromID(sector, id)
-		if wasErr == false && isFound == true && obj != nil {
-			player.OLCEdit.Object.ObjectLink, isFound = GetObjectFromID(sector, id)
+		if !wasErr && isFound && obj != nil {
+			player.OLCEdit.Object.ObjectLink, _ = GetObjectFromID(sector, id)
 			player.OLCEdit.Object.Sector = sector
 			player.OLCEdit.Object.ID = id
 			WriteToPlayer(player, "Object selected.")

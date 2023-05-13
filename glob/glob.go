@@ -45,12 +45,12 @@ var HelpSystem HelpMain
 var QuickHelp string
 var WizHelp string
 
-//Texts
+// Texts
 var Greeting string
 var AuRevoir string
 var News string
 
-//Autosave
+// Autosave
 var PlayerBackgroundPos int
 var SectorBackgroundPos int
 var NumPlayers int

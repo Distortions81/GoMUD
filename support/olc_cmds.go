@@ -89,7 +89,7 @@ func CmdDig(player *glob.PlayerData, input string) {
 	found := 0
 	for x := 0; ; x = x + 1 {
 		/* Re-use old room */
-		if rooms[x] != nil && rooms[x].Valid == false {
+		if rooms[x] != nil && !rooms[x].Valid {
 			found = x
 			break
 		}

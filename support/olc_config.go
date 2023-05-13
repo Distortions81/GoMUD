@@ -77,9 +77,8 @@ func OLCConfig(player *glob.PlayerData,
 		}
 	}
 
-	//Show settings avaialble
+	//Show settings available
 	for _, cmd := range OLCSettings {
 		WriteToPlayer(player, fmt.Sprintf("%10v:%5v --  %v", cmd.Name, boolToOnOff(*cmd.Ref), cmd.Help))
 	}
-	return
 }

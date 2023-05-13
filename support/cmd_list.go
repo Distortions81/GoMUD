@@ -8,7 +8,6 @@ import (
 /*Command list, types/levels in constants.go*/
 var CommandList = []glob.Command{
 
-	/*BLANK SHORT AUTOFILLS*/
 	/*allow short, short, name, function, type, quick-help*/
 
 	/*Moderator*/

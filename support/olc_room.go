@@ -127,7 +127,7 @@ func OLCRoom(player *glob.PlayerData,
 					newDesc = newDesc + player.CurEdit.Lines[x] + "\r\n"
 				}
 				player.OLCEdit.Room.RoomLink.Description = newDesc
-				WriteToPlayer(player, "Text transfered from editor.")
+				WriteToPlayer(player, "Text transferred from editor.")
 				CmdOLC(player, "")
 				return
 			}
@@ -142,7 +142,7 @@ func OLCRoom(player *glob.PlayerData,
 				WriteToPlayer(player, "OLC exit <exit name>")
 			} else if cmdBl == "create" {
 				if argThreeThrough != "" {
-					for exitName, _ := range player.OLCEdit.Room.RoomLink.Exits {
+					for exitName := range player.OLCEdit.Room.RoomLink.Exits {
 						if strings.EqualFold(exitName, argThreeThrough) {
 							WriteToPlayer(player, "That exit already exists.")
 							return
@@ -196,7 +196,7 @@ func OLCRoom(player *glob.PlayerData,
 				exits = "None"
 			}
 			numResets := 0
-			for x, _ := range player.OLCEdit.Room.RoomLink.Resets {
+			for x := range player.OLCEdit.Room.RoomLink.Resets {
 				numResets = x
 			}
 			buf = buf + fmt.Sprintf("Room: %v:%v (sector/id)\r\nName: %v\r\nDescription: \r\n\r\n%v\r\n\r\nExits:\r\n%v\r\nResets: %v",

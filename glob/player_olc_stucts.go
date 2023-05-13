@@ -51,7 +51,7 @@ type OLCSettingData struct {
 	OLCShowCodes bool `json:",omitempty"`
 	//Show color codes for whOLC world
 	OLCShowAllCodes bool `json:",omitempty"`
-	//OLC Promt enable
+	//OLC Prompt enable
 	OLCPrompt bool `json:",omitempty"`
 	//OLC prompt string
 	OLCPromptString string `json:",omitempty"`
