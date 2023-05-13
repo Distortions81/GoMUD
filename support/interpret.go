@@ -1,7 +1,6 @@
 package support
 
 import (
-	"fmt"
 	"log"
 	"strings"
 
@@ -20,7 +19,7 @@ func CreateShortcuts() {
 
 	for pos, aCmd := range CommandList {
 		wa++
-		if aCmd.Short != "" || aCmd.AS == false {
+		if aCmd.Short != "" || !aCmd.AS {
 			continue
 		}
 		aName := strings.ToLower(aCmd.Name)
@@ -31,7 +30,7 @@ func CreateShortcuts() {
 			wb++
 			for _, bCmd := range CommandList { //Search all commands except ourself
 				wc++
-				if bCmd.AS == false {
+				if !bCmd.AS {
 					continue
 				}
 				bName := strings.ToLower(bCmd.Name)
@@ -49,7 +48,7 @@ func CreateShortcuts() {
 		wd++
 		CommandList[pos].Short = (aName[0 : maxMatch+1])
 	}
-	log.Println(fmt.Sprintf("CreateShortcuts: %v:%v:%v-%v", wa, wb, wc, wd))
+	log.Printf("CreateShortcuts: %v:%v:%v-%v\n", wa, wb, wc, wd)
 }
 
 func PlayerCommand(player *glob.PlayerData, command string, args string, isAlias bool) {
@@ -70,12 +69,12 @@ func PlayerCommand(player *glob.PlayerData, command string, args string, isAlias
 				//continue
 			}
 
-			if cmd.AS == false && strings.EqualFold(command, cmd.Name) {
+			if !cmd.AS && strings.EqualFold(command, cmd.Name) {
 				cmd.Cmd(player, args)
 				return
-			} else if strings.HasPrefix(command, short) && strings.HasPrefix(cmd.Name, command) && isAlias == false && cmd.AS == true {
+			} else if strings.HasPrefix(command, short) && strings.HasPrefix(cmd.Name, command) && !isAlias && cmd.AS {
 				//aliases don't get shortcuts
-				//If begining of the input matches with record for shortest unique name for the command,
+				//If beginning of the input matches with record for shortest unique name for the command,
 				//If input is longer, if that also matches the full command name.
 				cmd.Cmd(player, args)
 				return
