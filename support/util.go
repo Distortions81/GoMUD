@@ -125,8 +125,6 @@ func ScaleBytes(b int) string {
 		output = fmt.Sprintf("%vmb", b/1024/1024)
 	} else if b >= 1024*1024*1024 { //gb
 		output = fmt.Sprintf("%vgb", b/1024/1024/1024)
-	} else if b >= 1024*1024*1024*1024 { //pb
-		output = fmt.Sprintf("%vpb", b/1024/1024/1024/1024)
 	} else { //b
 		output = fmt.Sprintf("%vb", b)
 	}
