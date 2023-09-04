@@ -50,7 +50,7 @@ func NewDescriptor(desc net.Conn, ssl bool) {
 			AutoResolveAddress(&newConnection)
 			glob.ConnectionList[x] = newConnection
 
-			if glob.ConnectionListEnd >= def.MAX_USERS-1 {
+			if glob.ConnectionListEnd >= def.MAX_USERS {
 				return
 			}
 			go ReadConnection(&glob.ConnectionList[x])
@@ -76,7 +76,7 @@ func NewDescriptor(desc net.Conn, ssl bool) {
 	glob.ConnectionListEnd++
 	glob.ConnectionList[glob.ConnectionListEnd] = newConnection
 
-	if glob.ConnectionListEnd >= def.MAX_USERS-1 {
+	if glob.ConnectionListEnd >= def.MAX_USERS {
 		return
 	}
 
