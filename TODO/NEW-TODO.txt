@@ -1,0 +1,17 @@
+Consider use of maps vs lists for different apps
+Consider async for most things
+Where maps are kept, make sure we use a lock if we can write and read concurrently.
+Possibly make functions to handle locking automatically,
+or maybe just lock maps during game tick and during edit/write
+make diagram of current code layout.
+consider unique fingerprint for sector IDs, so importing sectors is easy.
+have a local (dynamic) sector id/name alias for easy editing/viewing
+sanitize player names, and file paths for security (path jail?)
+telent negotiation. 
+http://www.faqs.org/rfcs/rfc854.html
+https://www.reddit.com/r/MUD/comments/15mt7pu/telnet_protocol/
+copyover https://goteleport.com/blog/golang-ssh-bastion-graceful-restarts/
+copyover alt: proxy
+
+vnum/sector renumbering system 'defrag' and auto-spacing
+db/player/txt saving via temp file and then rename, keep X old versions
