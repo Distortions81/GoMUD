@@ -54,13 +54,13 @@ func MleEditor(player *glob.PlayerData, input string) {
 			e.CurLine = num - 1
 		}
 	} else if cmdl == "add" {
-		if e.NumLines < def.MAX_MLE {
+		if e.NumLines < def.MAX_EDITOR_LINES {
 			e.CurLine = e.NumLines
 			e.NumLines++
 			e.CurLine++
 			e.Lines[e.NumLines] = argTwoThrough
 		} else {
-			WriteToPlayer(player, "Sorry, 100 lines max.")
+			WriteToPlayer(player, "Sorry, 1000 lines max.")
 		}
 	} else if cmdl == "remove" {
 		e.Lines[e.CurLine] = ""

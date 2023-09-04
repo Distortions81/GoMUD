@@ -7,4 +7,5 @@ if alphaCharLen <= 0 {
 	return
 }
 
-	
+ADD CHARACTER NAME FILTERING
+sanitize strings for player read/write.

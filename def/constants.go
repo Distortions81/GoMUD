@@ -14,15 +14,15 @@ const DEFAULT_PORT_SSL = ":7778"
 const SSL_PEM = "server.pem"
 const SSL_KEY = "server.key"
 
-// Maximums
-const MAX_SECTORS = 10000
+// Maximum
 const MAX_USERS = 1000
-const MAX_DESC = 950
-const MAX_MLE = 100
+const MAX_DESC = 1500
+const MAX_EDITOR_LINES = 1000
+const MAX_SECTORS = 1000
 
-const MAX_INPUT_LENGTH = 4096
-const MAX_OUTPUT_LENGTH = 65536
-const MAX_INPUT_LINES = 10
+const MAX_INPUT_LENGTH = 1024 * 32        //32K
+const MAX_OUTPUT_LENGTH = 1 * 1024 * 1024 //1MB
+const MAX_INPUT_LINES = 1000
 const MAX_CMATCH_SEARCH = 10000
 const MAX_COMMANDS_PER_LINE = 15
 
@@ -44,7 +44,7 @@ const SECTOR_VERSION = "0.0.1"
 const HELPS_VERSION = "0.0.1"
 
 const PASSWORD_HASH_COST = 10
-const MAX_PLAYER_NAME_LENGTH = 25
+const MAX_PLAYER_NAME_LENGTH = 32
 const MIN_PLAYER_NAME_LENGTH = 2
 const STRING_UNKNOWN = "unknown"
 
@@ -56,7 +56,7 @@ const PSECTOR_DIR = "psectors/"
 const TEXTS_DIR = "texts/"
 
 const SECTOR_PREFIX = "sec-"
-const FILE_SUFFIX = ".dat"
+const FILE_SUFFIX = ".json"
 
 const GREET_FILE = "greet.txt"
 const AUREVOIR_FILE = "aurevoir.txt"

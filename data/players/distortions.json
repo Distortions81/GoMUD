@@ -14,7 +14,7 @@
 		"ID": 1
 	},
 	"Created": "2020-07-23T04:58:48.5606438-06:00",
-	"LastSeen": "2023-09-04T01:19:44.736313895-06:00",
+	"LastSeen": "2023-09-04T15:50:19.960678061-06:00",
 	"OLCEdit": {
 		"Room": {},
 		"Object": {},
@@ -30,23 +30,23 @@
 			"3": "test",
 			"4": "",
 			"5": "{WRoses {Yare {RRed{w..."
-		},
-		"ColorCodes": true
+		}
 	},
 	"Connections": {
-		"127.0.0.1": 374
+		"127.0.0.1": 378
 	},
 	"BytesIn": {
-		"127.0.0.1": 28656
+		"127.0.0.1": 29330
 	},
 	"BytesOut": {
-		"127.0.0.1": 1400382
+		"127.0.0.1": 1504857
 	},
 	"Config": {
 		"Ansi": true
 	},
 	"OLCSettings": {
 		"NoOLCPrefix": true,
-		"OLCRoomFollow": true
+		"OLCRoomFollow": true,
+		"OLCPrompt": true
 	}
 }

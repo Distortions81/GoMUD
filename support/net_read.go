@@ -18,10 +18,9 @@ func ReadConnection(con *glob.ConnectionData) {
 	if !con.Valid {
 		return
 	}
-	if glob.ConnectionListEnd >= def.MAX_USERS-1 {
+	if glob.ConnectionListEnd >= def.MAX_USERS {
 		return
 	}
-
 	reader := bufio.NewReader(con.Desc)
 
 	glob.ConnectionListLock.Unlock() /*--- UNLOCK ---*/

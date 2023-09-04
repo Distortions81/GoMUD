@@ -17,7 +17,7 @@ import (
 // TODO ASYNC READ
 func ReadPlayer(name string, load bool) (*glob.PlayerData, bool) {
 
-	_, err := os.Stat(def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(name))
+	_, err := os.Stat(def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(name) + def.FILE_SUFFIX)
 	notfound := os.IsNotExist(err)
 
 	if notfound {
@@ -32,7 +32,7 @@ func ReadPlayer(name string, load bool) (*glob.PlayerData, bool) {
 			glob.PlayerFileLock.Lock()
 			defer glob.PlayerFileLock.Unlock()
 
-			file, err := ioutil.ReadFile(def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(name))
+			file, err := ioutil.ReadFile(def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(name) + def.FILE_SUFFIX)
 
 			if file != nil && err == nil {
 				player := CreatePlayer()
@@ -87,7 +87,7 @@ func WritePlayer(player *glob.PlayerData, asyncSave bool) bool {
 		return false
 	}
 	player.Version = def.PFILE_VERSION
-	fileName := def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(player.Name)
+	fileName := def.DATA_DIR + def.PLAYER_DIR + strings.ToLower(player.Name) + def.FILE_SUFFIX
 
 	player.LastSeen = time.Now()
 

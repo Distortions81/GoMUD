@@ -16,7 +16,7 @@ func MakeQuickHelp() {
 
 	for _, cmd := range CommandList {
 		ptype := ""
-		if cmd.Type >= 700 {
+		if cmd.Type >= def.PLAYER_TYPE_BUILDER {
 			continue
 			//ptype = " " + GetPTypeString(cmd.Type)
 		}
@@ -36,7 +36,7 @@ func MakeWizHelp() {
 
 	for _, cmd := range CommandList {
 		ptype := ""
-		if cmd.Type >= 700 {
+		if cmd.Type >= def.PLAYER_TYPE_BUILDER {
 			ptype = " " + GetPTypeString(cmd.Type)
 		} else {
 			continue
