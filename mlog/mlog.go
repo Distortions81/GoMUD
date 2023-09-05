@@ -13,14 +13,11 @@ func Write(line string) {
 	t := time.Now()
 	date := fmt.Sprintf("%02d-%02d-%04d_%02d-%02d-%02d", t.Month(), t.Day(), t.Year(), t.Hour(), t.Minute(), t.Second())
 
-	//Async write
-	go func(line string, date string) {
-		buf := fmt.Sprintf("%s: %s\n", date, line)
+	buf := fmt.Sprintf("%s: %s\n", date, line)
 
-		go writeToMods(line)
-		log.Print(line)
-		glob.MudLog.WriteString(buf)
-	}(line, date)
+	writeToMods(line)
+	log.Print(line)
+	glob.MudLog.WriteString(buf)
 }
 
 func writeToMods(text string) {
