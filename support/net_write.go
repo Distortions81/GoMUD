@@ -30,7 +30,7 @@ func DescWriteError(c *glob.ConnectionData, err error) {
 }
 
 func WriteToDesc(c *glob.ConnectionData, text string) {
-	go WriteToConn(c, text, true, false)
+	WriteToConn(c, text, true, false)
 }
 
 func WriteToConn(c *glob.ConnectionData, text string, color bool, codes bool) {

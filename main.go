@@ -65,7 +65,6 @@ func WaitNewConnectionSSL() {
 			time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
 			desc, err := glob.ServerListenerSSL.Accept()
 			support.AddNetDesc()
-			time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)
 
 			/* If there is a connection flood, sleep listeners */
 			if err != nil || support.CheckNetDesc() {
@@ -74,7 +73,7 @@ func WaitNewConnectionSSL() {
 				support.RemoveNetDesc()
 			} else {
 
-				_, err = desc.Write([]byte(
+				desc.Write([]byte(
 					def.LICENSE + glob.Greeting +
 						"(SSL Encryption Enabled!)\n(Type NEW to create character) Name:"))
 				time.Sleep(def.CONNECT_THROTTLE_MS * time.Millisecond)

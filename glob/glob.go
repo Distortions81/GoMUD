@@ -3,10 +3,11 @@ package glob
 import (
 	"net"
 	"os"
-	"sync"
 	"time"
 
 	"gomud/def"
+
+	"github.com/sasha-s/go-deadlock"
 )
 
 var SignalHandle chan os.Signal
@@ -14,11 +15,11 @@ var BootTime time.Time
 
 /*Descriptor counting*/
 var OpenDesc int
-var OpenDescLock sync.Mutex
+var OpenDescLock deadlock.Mutex
 
 /*Files desc locks*/
-var PlayerFileLock sync.Mutex
-var SectorsFileLock sync.Mutex
+var PlayerFileLock deadlock.Mutex
+var SectorsFileLock deadlock.Mutex
 
 /*Listeners, server state*/
 var ServerState = def.SERVER_RUNNING
@@ -32,7 +33,7 @@ var Round <-chan struct{}
 /*Main Game Data*/
 var ConnectionListEnd int
 var ConnectionList [def.MAX_USERS + 1]ConnectionData
-var ConnectionListLock sync.Mutex
+var ConnectionListLock deadlock.Mutex
 
 var PlayerListEnd int
 var PlayerList [def.MAX_USERS + 1]*PlayerData
@@ -60,4 +61,4 @@ var MaxRun time.Duration
 var MinRun time.Duration
 var MedRun time.Duration
 var PerfStats string
-var PerLock sync.Mutex
+var PerLock deadlock.Mutex
